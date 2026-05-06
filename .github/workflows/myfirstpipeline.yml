@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Print message
-        run: echo "Building the app"
+        run: echo "Hello from my pipeline"
 
       - name: Print message
         run: echo "Build Complete"
