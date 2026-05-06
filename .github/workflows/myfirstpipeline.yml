@@ -1,0 +1,19 @@
+
+name: My App Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print message
+        run: echo "Building the app"
+
+      - name: Print message
+        run: echo "Build Complete"
