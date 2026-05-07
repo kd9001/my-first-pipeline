@@ -25,6 +25,8 @@ jobs:
         
       - name: Run tests
         run: pytest test_app.py
+
+
   build:
     runs-on: ubuntu-latest
     needs: test
@@ -36,10 +38,10 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t maalchand/myapp:v1 .
+        run: docker build -t maalchand/myapp:{{ github.sha }} .
 
       - name: Push Docker image
-        run: docker push maalchand/myapp:v1  
+        run: docker push maalchand/myapp:{{ github.sha }}  
 
   deploy:
     runs-on: ubuntu-latest
