@@ -38,10 +38,10 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t maalchand/myapp:{{ github.sha }} .
+        run: docker build -t maalchand/myapp:${{ github.sha }} .
 
       - name: Push Docker image
-        run: docker push maalchand/myapp:{{ github.sha }}  
+        run: docker push maalchand/myapp:${{ github.sha }}  
 
   deploy:
     runs-on: ubuntu-latest
