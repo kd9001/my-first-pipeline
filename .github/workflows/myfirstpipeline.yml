@@ -34,3 +34,10 @@ jobs:
 
       - name: Build confirmation
         run: echo "Tests passed! App is ready to build"
+  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy confirmation
+        run: echo "Deploying to production"      
